@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About • ForgeDev Studio</title>
+  <meta name="description" content="Learn about ForgeDev Studio – we build and optimize game servers with clean configs, custom scripts, and reliable support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1115;         /* deep charcoal */
+      --panel:#151821;      /* card background */
+      --muted:#9aa3b2;      /* subdued text */
+      --text:#e6e8ee;       /* primary text */
+      --brand:#f1c04a;      /* Forge gold */
+      --accent:#b468ff;     /* neon purple */
+      --ring: rgba(180,104,255,.35);
+      --success:#42d392;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 1200px at 90% -10%, rgba(180,104,255,.15), transparent 60%),
+                  radial-gradient(1000px 900px at -10% 10%, rgba(241,192,74,.12), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin-inline:auto; padding:32px 20px}
+    .nav{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px); background:rgba(15,17,21,.6);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav .inner{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 20px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
+    .logo{width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg, var(--brand), #ffda79); display:grid; place-items:center; color:#111; font-weight:900; box-shadow: 0 8px 20px rgba(241,192,74,.35)}
+    .tag{padding:6px 10px; border:1px solid rgba(255,255,255,.08); color:var(--muted); border-radius:999px; font-size:12px}
+    .btn{display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg, var(--accent), #57b0ff); color:#0d0f14; font-weight:700; padding:12px 16px; border-radius:14px; box-shadow: 0 10px 30px rgba(180,104,255,.35);}
+    .btn:focus-visible{outline:2px solid var(--ring)}
+
+    /* hero */
+    .hero{padding:72px 20px 42px}
+    .hero h1{font-size:clamp(32px, 6vw, 56px); line-height:1.05; margin:0 0 14px}
+    .hero p{color:var(--muted); font-size:clamp(16px, 2.2vw, 18px); max-width:720px}
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .badge{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); color:#cfd6e6; padding:8px 12px; border-radius:999px; font-size:13px}
+
+    /* grid */
+    .grid{display:grid; gap:18px}
+    @media(min-width:860px){.grid{grid-template-columns:1.2fr 1fr}}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 6px}
+    .card p{margin:0; color:var(--muted)}
+
+    .list{display:grid; gap:12px; margin-top:14px}
+    .li{display:flex; gap:10px; align-items:flex-start}
+    .li .tick{width:22px; height:22px; border-radius:8px; display:grid; place-items:center; background:rgba(66,211,146,.15); color:var(--success); border:1px solid rgba(66,211,146,.35)}
+
+    /* plans */
+    .plans{display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); margin-top:12px}
+    .plan{background:var(--panel); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); position:relative; overflow:hidden}
+    .plan h4{margin:0 0 4px}
+    .price{font-weight:800; color:var(--brand)}
+    .pill{display:inline-block; margin-top:10px; padding:6px 10px; border-radius:999px; background:rgba(180,104,255,.15); border:1px solid rgba(180,104,255,.35); color:#e9dcff; font-size:12px}
+
+    /* testimonial */
+    .quote{font-size:18px; line-height:1.5}
+    blockquote{margin:0; padding-left:16px; border-left:3px solid rgba(255,255,255,.15); color:#dfe5f5}
+
+    /* contact */
+    .contact{display:grid; gap:16px; grid-template-columns:1.2fr 1fr; align-items:center}
+    @media(max-width:860px){.contact{grid-template-columns:1fr}}
+    input, textarea{width:100%; background:#0d0f14; border:1px solid rgba(255,255,255,.12); color:var(--text); padding:12px 14px; border-radius:12px; font:inherit}
+    textarea{min-height:110px; resize:vertical}
+    label{font-size:13px; color:var(--muted)}
+
+    footer{margin-top:46px; padding:24px 20px; color:#9ea7b6; border-top:1px solid rgba(255,255,255,.08)}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="inner container">
+      <div class="brand">
+        <div class="logo">F</div>
+        <div>
+          <div style="font-weight:800; letter-spacing:.4px">ForgeDev Studio</div>
+          <div class="tag">Game server development & support</div>
+        </div>
+      </div>
+      <nav style="display:flex; gap:12px; align-items:center">
+        <a class="tag" href="#mission">Mission</a>
+        <a class="tag" href="#services">Services</a>
+        <a class="tag" href="#values">Values</a>
+        <a class="tag" href="#contact">Contact</a>
+        <a class="btn" href="https://forgedev.store" target="_blank" rel="noreferrer">Visit Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <h1>About <span style="color:var(--brand)">ForgeDev Studio</span></h1>
+      <p>
+        We help communities launch and grow polished game servers. From clean txAdmin setups and performance tuning to custom scripts and branding, we focus on stability, clarity, and player experience.
+      </p>
+      <div class="badges">
+        <span class="badge">Fast setup & migration</span>
+        <span class="badge">Optimized configs</span>
+        <span class="badge">Clear documentation</span>
+        <span class="badge">Friendly support</span>
+      </div>
+    </section>
+
+    <section id="mission" class="container grid">
+      <article class="card">
+        <h3>Our Mission</h3>
+        <p>Give creators reliable, good‑looking servers without the headache. We ship sensible defaults, readable configs, and thoughtful UX so you can focus on your community.</p>
+        <div class="list">
+          <div class="li"><span class="tick">✓</span><div>Launch quickly with stable foundations</div></div>
+          <div class="li"><span class="tick">✓</span><div>Scale with maintainable configs and tools</div></div>
+          <div class="li"><span class="tick">✓</span><div>Look professional with cohesive branding</div></div>
+        </div>
+      </article>
+      <aside class="card">
+        <h3>What We Do</h3>
+        <p>Server builds, optimization, branding, and ongoing improvements.</p>
+        <div class="list">
+          <div class="li"><span class="tick">✓</span><div>txAdmin base + resource curation</div></div>
+          <div class="li"><span class="tick">✓</span><div>Permissions, menus/HUD, anti‑cheat baseline</div></div>
+          <div class="li"><span class="tick">✓</span><div>Custom scripts & content packs</div></div>
+          <div class="li"><span class="tick">✓</span><div>Loading screens, logo, and style guide</div></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="services" class="container">
+      <h2 style="margin:10px 0 6px">Plans & Services</h2>
+      <p style="color:var(--muted); margin:0 0 10px">Clear packages that grow with your community. Need something special? We do custom work too.</p>
+      <div class="plans">
+        <div class="plan">
+          <h4>Basic</h4>
+          <div class="price">£25</div>
+          <p class="pill">Starter setup for small communities</p>
+          <ul style="margin:12px 0 0; padding-left:18px; color:var(--muted)">
+            <li>Base server (txAdmin) & essential resources</li>
+            <li>Jobs (Police/EMS/Mechanic/Taxi) & economy</li>
+            <li>Standard vehicle pack</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <h4>Starter</h4>
+          <div class="price">£45</div>
+          <p class="pill">Adds polish & QoL features</p>
+          <ul style="margin:12px 0 0; padding-left:18px; color:var(--muted)">
+            <li>Optimized config & permissions</li>
+            <li>Better menus/HUD tuning</li>
+            <li>Anti‑cheat baseline + docs</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <h4>Standard</h4>
+          <div class="price">£65</div>
+          <p class="pill">Great for growing servers</p>
+          <ul style="margin:12px 0 0; padding-left:18px; color:var(--muted)">
+            <li>2 small custom job scripts</li>
+            <li>Advanced vehicle pack</li>
+            <li>Branded loading screen + logo</li>
+            <li>14‑day bug‑fix warranty</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="values" class="container grid" style="margin-top:22px">
+      <article class="card">
+        <h3>How We Work</h3>
+        <p>We keep things transparent and maintainable. Every change is documented, and every config is readable.
+        </p>
+        <div class="list">
+          <div class="li"><span class="tick">✓</span><div>Performance first — measure, then tweak</div></div>
+          <div class="li"><span class="tick">✓</span><div>Minimal bloat — fewer moving parts, fewer headaches</div></div>
+          <div class="li"><span class="tick">✓</span><div>Clear hand‑off — you keep access to everything</div></div>
+        </div>
+      </article>
+      <aside class="card">
+        <h3>What Clients Say</h3>
+        <blockquote class="quote">“ForgeDev turned our idea into a stable server in days — the documentation made future tweaks painless.”</blockquote>
+        <p style="color:var(--muted); margin-top:8px">— Community Owner</p>
+      </aside>
+    </section>
+
+    <section id="contact" class="container" style="margin-top:26px">
+      <div class="contact card">
+        <div>
+          <h3>Contact Us</h3>
+          <p class="" style="color:var(--muted)">Tell us what you’re building and we’ll suggest a path that fits your budget and timeline.</p>
+          <div class="badges" style="margin-top:12px">
+            <span class="badge">Response within 24h</span>
+            <span class="badge">Private Git access</span>
+            <span class="badge">Ongoing support options</span>
+          </div>
+        </div>
+        <form onsubmit="event.preventDefault(); alert('Thanks! We\'ll get back to you shortly.');">
+          <div style="display:grid; gap:10px">
+            <div>
+              <label for="name">Your name</label>
+              <input id="name" placeholder="Jane Developer" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div>
+              <label for="msg">What do you need?</label>
+              <textarea id="msg" placeholder="Tell us about your server goals…"></textarea>
+            </div>
+            <button class="btn" type="submit">Send message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div>© <span id="year"></span> ForgeDev Studio. All rights reserved. We are not affiliated with any real‑world brands.</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
